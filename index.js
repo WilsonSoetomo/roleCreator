@@ -218,7 +218,9 @@ function generateHtml() {
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+  <div class="container">
     ${profiles.map(createCard).join("")}
+  </div>
 </body>
 </html>
     `;
@@ -239,27 +241,26 @@ function createCard(employee) {
       break;
   }
   return `
-  <div class="container">
-  <div class="card">
-    <img
-      src="https://lh3.googleusercontent.com/ytP9VP86DItizVX2YNA-xTYzV09IS7rh4WexVp7eilIcfHmm74B7odbcwD5DTXmL0PF42i2wnRKSFPBHlmSjCblWHDCD2oD1oaM1CGFcSd48VBKJfsCi4bS170PKxGwji8CPmehwPw=w200-h247-no"
-      alt="Person"
-      class="card__image"
-    />
-    <div class="details">
+    <div class="card">
+      <img
+        src="https://lh3.googleusercontent.com/ytP9VP86DItizVX2YNA-xTYzV09IS7rh4WexVp7eilIcfHmm74B7odbcwD5DTXmL0PF42i2wnRKSFPBHlmSjCblWHDCD2oD1oaM1CGFcSd48VBKJfsCi4bS170PKxGwji8CPmehwPw=w200-h247-no"
+        alt="Person"
+        class="card__image"
+      />
+      <div class="details">
         <h1>
-            ${employee.name}
+          ${employee.name}
         </h1>
         <h2>
-        ${role}
+          ${role}
         </h2>
-        <ul>
-  <h3> id: ${employee.id}</h3>
-        <ul>
+        <h3> id: ${employee.id}</h3>
+      </div>
+      <a href="mailto:${employee.email}" target="_blank">
+        <div class="btn draw-border">${employee.email}</div>
+      </a> 
+      ${additionalProp}
     </div>
-    <a href="mailto:${employee.email}" target="_blank"><div class="btn draw-border">${employee.email}</button></a>
-    </div>${additionalProp}
-  
     `;
 }
 
